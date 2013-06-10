@@ -1,0 +1,9 @@
+production: &production
+  adapter: em_postgresql
+  encoding: unicode
+  database: notes
+  pool: 5
+  username: eiffel
+  password: eiffel
+development:
+  <<: *production
