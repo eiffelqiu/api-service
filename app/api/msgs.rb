@@ -1,22 +1,20 @@
-require 'pp'
-
 module Note
-  class Messages < Grape::API
+  class Msgs < Grape::API
     prefix "api"
     version 'v1', :using => :path
     format :json
     
-    resource 'messages' do
+    resource 'msgs' do
       get "/" do
-        ::Message.all
-      end
+       ::Msg.all
+     end
       
       get "/:id" do 
-        ::Message.find(params[:id])
+        ::Msg.find(params[:id])
       end
       
       post "/create" do
-        @msg = ::Message.new
+        @msg = ::Msg.new
         @msg.name = params[:name] || 'anonymous'
         @msg.body = params[:body] || ''
         @msg.email = params[:email] || 'anonymous@likenote.com'

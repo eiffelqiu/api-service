@@ -1,7 +1,7 @@
-class CreateMessages < ActiveRecord::Migration
+class CreateMsgs < ActiveRecord::Migration
   
-  def change
-    create_table :messages do |t|
+  def self.up
+    create_table :msgs do |t|
       t.string :name
       t.text :body
       t.string :email
@@ -13,5 +13,9 @@ class CreateMessages < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def self.down
+    drop_table :msgs
+  end  
   
 end
