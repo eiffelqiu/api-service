@@ -1,5 +1,4 @@
-grape-postgres(Jruby)
-=========================
+grape-postgres 
 
 1: Postgresql
 
@@ -28,7 +27,7 @@ grape-postgres(Jruby)
 
 	$ open http://localhost:9000
 
-	$ curl -X POST -d 'name=qiuhaifeng&body=leavemessage&app=liuyaozhuanggua&ip=123.33.44.55&email=eiffelqiu@qq.com' http://localhost:9000/api/v1/messages/create 
+	$ curl -X POST -d 'name=qiuhaifeng&body=leavemessage&app=liuyaozhuanggua&email=eiffelqiu@qq.com' http://localhost:9000/api/v1/messages/create 
 
 	$ open http://localhost:9000/api/v1/messages/
 
