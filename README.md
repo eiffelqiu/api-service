@@ -26,7 +26,7 @@ grape-goliath-postgres-api
 	
 6: API
 
-	$ curl -X POST -d 'name=qiuhaifeng&body=leavemessage&app=liuyaozhuanggua&email=eiffelqiu@qq.com' http://localhost:9000/api/v1/messages/create 
+	$ curl -X POST -d 'name=eiffel&body=leavemessage&app=app1&email=eiffelqiu@qq.com' http://localhost:9000/api/v1/msgs/create
 
-	$ open http://localhost:9000/api/v1/messages/
+	$ open http://localhost:9000/api/v1/msgs
 
