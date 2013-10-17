@@ -1,5 +1,4 @@
-grape-goliath-postgres-api-example
-
+grape-goliath-postgres-api
 =========================
 
 1: Postgresql
@@ -23,11 +22,9 @@ grape-goliath-postgres-api-example
 
 5: Start server
 
-	$ ruby server.rb -vs
+	$ ruby server.rb -vs -e production
 	
 6: API
-
-	$ open http://localhost:9000
 
 	$ curl -X POST -d 'name=qiuhaifeng&body=leavemessage&app=liuyaozhuanggua&email=eiffelqiu@qq.com' http://localhost:9000/api/v1/messages/create 
 
