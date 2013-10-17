@@ -3,7 +3,7 @@ production: &production
   encoding: unicode
   database: notes
   pool: 5
-  username: eiffel
-  password: eiffel
+  username: notes
+  password: notes
 development:
   <<: *production

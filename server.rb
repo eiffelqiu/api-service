@@ -3,13 +3,13 @@ require "bundler/setup"
 require 'goliath'
 require 'em-synchrony/activerecord'
 require 'grape'
-require './app/apis/posts'
-require './app/models/post'
+require './app/apis/messages'
+require './app/models/message'
 
 class Application < Goliath::API
 
   def response(env)
-    ::Note::Posts.call(env)
+    ::Note::Messages.call(env)
   end
 
 end
