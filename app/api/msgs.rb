@@ -6,7 +6,7 @@ module Note
     
     resource 'msgs' do
       get "/" do
-       ::Msg.all
+       ::Msg.all.to_json(except: [:id, :created_at, :updated_at, :uuid, :sns, :ip, :app, :model])
      end
       
       get "/:id" do 
