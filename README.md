@@ -1,4 +1,5 @@
-grape-postgres
+grape-goliath-postgres-api-example
+
 =========================
 
 1: Postgresql
