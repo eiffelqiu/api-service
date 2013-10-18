@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'yajl-ruby'
 gem 'rack'
 gem 'pg'
-gem 'em-synchrony', :git => "git://github.com/igrigorik/em-synchrony.git"
-gem 'em-http-request'
+gem 'em-http-request', :git => 'https://github.com/igrigorik/em-http-request.git'
+
 gem 'em-postgresql-adapter', :git => 'git://github.com/leftbee/em-postgresql-adapter.git'
 gem 'rack-fiber_pool',  :require => 'rack/fiber_pool'
 gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git',

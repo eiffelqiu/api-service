@@ -5,7 +5,6 @@ require 'goliath'
 require 'goliath/test_helper'
 
 Goliath.env = :test
-
 ENV["RACK_ENV"] ||= 'test'
 
 require_relative '../app/api/msgs'

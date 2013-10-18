@@ -6,7 +6,7 @@ require 'yaml'
 require 'erb'
 require 'grape'
 require 'goliath'
-require 'rspec'
+require 'rake'
 
 require File.dirname(__FILE__) + '/app/api/msgs'
 require File.dirname(__FILE__) + '/app/models/msg'
@@ -25,8 +25,6 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-require 'rake'
-
 require 'rspec/core'
 require 'rspec/core/rake_task'
 
@@ -38,6 +36,7 @@ end
 task :default => :spec
 
 task :environment do
+  Goliath.env = :test
   ENV["RACK_ENV"] ||= 'test'
 end
 
