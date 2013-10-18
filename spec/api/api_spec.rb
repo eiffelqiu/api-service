@@ -1,8 +1,10 @@
 require_relative '../spec_helper.rb'
 
-def app
-  ::Note::Msgs
-end   
+class Test < Goliath::API
+  def response(env)
+    ::Note::Msgs.call(env)
+  end
+end
 
 Goliath.run_app_on_exit = false
 
@@ -11,15 +13,23 @@ describe ::Note::Msgs do
   include Rack::Test::Methods
   include Goliath::TestHelper
 
-  it "return hello string" do
-    get "/api/v1/msgs/hello"
-    last_response.status.should == 200
-    last_response.body.should == '"hello"'
-  end
+  let(:err) { Proc.new { |c| fail "HTTP Request failed #{c.response}" } }
 
   it "return an array of messages" do
-    get "/api/v1/msgs"
-    last_response.status.should == 200  
+    with_api(Test) do
+      get_request({:path => "/api/v1/msgs" }, err) do |c|
+        c.response_header.status.should == 200
+      end
+    end
+  end  
+
+  it "return hello string" do
+    with_api(Test) do
+      get_request({:path => "/api/v1/msgs/hello" }, err) do |c|
+        c.response_header.status.should == 200
+        c.response.should == '"hello"'
+      end
+    end
   end
 
 end

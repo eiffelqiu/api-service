@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'em-synchrony/activerecord'
 require 'rack/test'
 require 'grape'
