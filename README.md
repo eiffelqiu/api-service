@@ -1,4 +1,4 @@
-grape-goliath-postgres-api
+Api service built with grape, goliath, postgres, rspec
 =========================
 
 1: Postgresql
