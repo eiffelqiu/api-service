@@ -1,11 +1,16 @@
+require 'em-synchrony/activerecord'
+require 'rack/test'
+require 'grape'
+require 'goliath'
 require 'goliath/test_helper'
-require 'yajl/json_gem'
 
 Goliath.env = :test
 
 ENV["RACK_ENV"] ||= 'test'
 
-require 'rack/test'
+require_relative '../app/api/msgs'
+require_relative '../app/models/msg'
+require_relative '../config/application'
 
 RSpec.configure do |config|
   config.mock_with :rspec

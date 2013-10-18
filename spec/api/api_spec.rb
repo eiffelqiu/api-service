@@ -1,26 +1,4 @@
-require 'goliath/test_helper'
-require 'em-synchrony/activerecord'
-require 'grape'
-require 'goliath'
-
-require File.dirname(__FILE__) + '/../../app/api/msgs'
-require File.dirname(__FILE__) + '/../../app/models/msg'
-require File.dirname(__FILE__) + '/../../config/application'
-
-# 初始化时加载路径 app/api app/lib app/models
-%w[api models lib].each do |folder|
-   $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/../app/#{folder}"))
-end
-
-Goliath.env = :test
-
-RSpec.configure do |c|
-  c.include Goliath::TestHelper, :example_group => {
-    :file_path => /spec\//
-  }
-end
-
-require 'rack/test'
+require_relative '../spec_helper.rb'
 
 describe "Note::Msgs" do
 
@@ -44,4 +22,5 @@ describe "Note::Msgs" do
     end
 
   end
+  
 end

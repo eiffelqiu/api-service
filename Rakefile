@@ -6,6 +6,7 @@ require 'yaml'
 require 'erb'
 require 'grape'
 require 'goliath'
+require 'rspec'
 
 require File.dirname(__FILE__) + '/app/api/msgs'
 require File.dirname(__FILE__) + '/app/models/msg'
@@ -14,6 +15,7 @@ require File.dirname(__FILE__) + '/app/models/msg'
 %w[api models lib].each do |folder|
    $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/app/#{folder}"))
 end
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__) + "/spec"))
 
 begin
   Bundler.setup(:default, :development)
