@@ -1,0 +1,16 @@
+require 'goliath/test_helper'
+require 'yajl/json_gem'
+
+Goliath.env = :test
+
+ENV["RACK_ENV"] ||= 'test'
+
+require 'rack/test'
+
+RSpec.configure do |config|
+  config.mock_with :rspec
+  config.expect_with :rspec
+  config.include Goliath::TestHelper, :example_group => {
+    :file_path => /spec\//
+  }  
+end

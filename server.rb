@@ -1,8 +1,9 @@
 require "rubygems"
 require "bundler/setup"
-require 'goliath'
 require 'em-synchrony/activerecord'
 require 'grape'
+require 'goliath'
+
 require File.dirname(__FILE__) + '/app/api/msgs'
 require File.dirname(__FILE__) + '/app/models/msg'
 

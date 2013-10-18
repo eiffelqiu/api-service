@@ -18,3 +18,10 @@ Gemfile.lock
 _yardoc
 doc/
 .idea/
+
+.DS_Store
+.rvmrc
+.redcar
+.irbrc
+.bundle
+log

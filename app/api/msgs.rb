@@ -1,3 +1,8 @@
+require 'yajl'
+require 'yajl/json_gem'
+require 'goliath'
+require 'grape'
+
 module Note
   class Msgs < Grape::API
     prefix "api"
@@ -5,9 +10,14 @@ module Note
     format :json
     
     resource 'msgs' do
+
+      get "/hello" do
+        'hello'
+      end      
+
       get "/" do
-       ::Msg.all.as_json(except: [:id, :created_at, :updated_at, :uuid, :sns, :ip, :app, :model])
-     end
+        ::Msg.all.as_json(except: [:id, :created_at, :updated_at, :uuid, :sns, :ip, :app, :model])
+      end
       
       get "/:id" do 
         ::Msg.find(params[:id])
