@@ -1,9 +1,10 @@
 production: &production
-  adapter: em_postgresql
+  adapter: postgresql
   encoding: unicode
   database: notes
   pool: 5
   username: notes
   password: notes
+  host: localhost
 development:
   <<: *production

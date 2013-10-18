@@ -31,12 +31,12 @@ describe "Note::Msgs" do
 
   describe "GET /api/v1/msgs" do
 
-    it "returns hello string" do
+    it "return hello string" do
       get "/api/v1/msgs/hello"
       last_response.status.should == 200
     end
 
-    it "returns an array of messages" do
+    it "return an array of messages" do
       get "/api/v1/msgs"
       last_response.status.should == 200
     end
