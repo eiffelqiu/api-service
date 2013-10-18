@@ -6,7 +6,9 @@ require 'yaml'
 require 'erb'
 require 'grape'
 require 'goliath'
+require 'goliath/test_helper'
 require 'rake'
+require 'rspec'
 
 require File.dirname(__FILE__) + '/app/api/msgs'
 require File.dirname(__FILE__) + '/app/models/msg'
@@ -27,23 +29,31 @@ end
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
-
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  # do not run integration tests, doesn't work on TravisCI
-  spec.pattern = FileList['spec/api/*_spec.rb']
+ 
+RSpec.configure do |config|
+  config.mock_with :rspec
+  config.expect_with :rspec
+  config.include Goliath::TestHelper, :example_group => {
+    :file_path => /spec\//
+  }  
 end
 
+desc 'Run all specs in spec folder'
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.fail_on_error = false
+  spec.pattern = FileList['spec/**/*_spec.rb']
+end
+
+desc 'Default: run specs.'
 task :default => :spec
 
-task :environment do
+desc 'Display routes'
+RSpec::Core::RakeTask.new(:routes) do |spec|
   Goliath.env = :test
   ENV["RACK_ENV"] ||= 'test'
-end
-
-task :routes => :environment do
   ::Note::Msgs.routes.each do |route|
     p route
-  end
+  end  
 end
 
 namespace :db do

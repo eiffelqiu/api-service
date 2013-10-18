@@ -1,5 +1,3 @@
-require 'yajl'
-require 'yajl/json_gem'
 require 'goliath'
 require 'grape'
 

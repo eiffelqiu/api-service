@@ -18,3 +18,11 @@ RSpec.configure do |config|
     :file_path => /spec\//
   }  
 end
+
+# 自定义Log的输出样式
+Goliath::Request.log_block = proc do |env, response, elapsed_time|
+  method = env[Goliath::Request::REQUEST_METHOD]
+  path = env[Goliath::Request::REQUEST_URI]
+
+  env[Goliath::Request::RACK_LOGGER].info("#{response.status} #{method} #{path} in #{'%.2f' % elapsed_time} ms")
+end
